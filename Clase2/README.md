@@ -8,7 +8,7 @@ Objeto o copia realizada con la plantilla o molde.
 ## Analogía
 * Clase: Molde de galletas.
 * Objeto o Instancia: Una galleta realizada con el molde.
-* Atributo de clase: Chispas de chocolate de la galleta.
+* Atributo de clase: El sabor o si tiene chispas de chocolate de la galleta.
 
 ## Modos de Acceso
 
