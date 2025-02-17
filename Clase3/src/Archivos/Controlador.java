@@ -15,7 +15,7 @@ public class Controlador {
             String linea;
 
             while((linea = lector.readLine()) != null) { // guardar el valor de la línea leida en la variable y evaluar que haya leido algo (!= null)
-                contenido += linea.replaceAll("\\s+", "");
+                contenido += linea.replace(" ", "");
 
                 if(lector.ready()) {
                     contenido += "\n";

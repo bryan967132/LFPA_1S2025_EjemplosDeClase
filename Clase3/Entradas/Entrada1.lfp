@@ -1,0 +1,9 @@
+Nombre     ; Salud ; Ataque ; Defensa
+Berserker  ;  12   ;   60   ;   20
+Hechicero  ;  10   ;   50   ;   15
+Asesino    ;  55   ;   39   ;   38
+Paladin    ;  18   ;   40   ;   35
+Monje      ;  14   ;   38   ;   28
+Nigromante ;  11   ;   42   ;   22
+Lancero    ;  13   ;   44   ;   27
+Samurai    ;  12   ;   48   ;   25
