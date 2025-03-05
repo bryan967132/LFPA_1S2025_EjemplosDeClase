@@ -1,0 +1,7 @@
+{
+	suma(1, 3, 5)
+	resta(10, 4, 2)
+
+	"ESTE ES UN COMENTARIO"
+	""
+}
