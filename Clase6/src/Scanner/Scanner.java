@@ -55,57 +55,57 @@ public class Scanner {
     }
 
     private Token S1() {
-        iniciarBuffer(next_char);
         return new Token(TOK.TK_llaveIzq, getBuffer(), char_line, char_col);
     }
 
     private Token S2() {
-        iniciarBuffer(next_char);
         return new Token(TOK.TK_llaveDer, getBuffer(), char_line, char_col);
     }
 
     private Token S3() {
-        iniciarBuffer(next_char);
         return new Token(TOK.TK_parIzq, getBuffer(), char_line, char_col);
     }
 
     private Token S4() {
-        iniciarBuffer(next_char);
         return new Token(TOK.TK_parDer, getBuffer(), char_line, char_col);
     }
 
     private Token S5() {
-        iniciarBuffer(next_char);
         return new Token(TOK.TK_coma, getBuffer(), char_line, char_col);
     }
 
     private Token S6() {
-        iniciarBuffer(next_char);
-        while(Character.isDigit(next_char = input[char_pos])) {
+        if(Character.isDigit(next_char = input[char_pos])) {
             agregarBuffer(next_char);
+            return S6();
         }
         return new Token(TOK.TK_numero, getBuffer(), char_line, char_col);
     }
 
-    private Token S7_S15() {
-        iniciarBuffer(next_char);
-        while(Character.isLetterOrDigit(next_char = input[char_pos])) {
+    private Token S7() {
+        if(Character.isLetterOrDigit(next_char = input[char_pos])) {
             agregarBuffer(next_char);
+            return S7();
         }
         TOK resultado = keywords.getOrDefault(buffer, null);
         if(resultado == TOK.KW_suma || resultado == TOK.KW_resta) {
             return new Token(resultado, getBuffer(), char_line, char_col);
         }
+        errores.add(new Error(TipoError.LEXICO, getBuffer(), char_line, char_col));
         return null;
     }
 
-    private void S16_S18() {
-        iniciarBuffer(next_char);
-        while((next_char = input[char_pos]) != '"') {
+    private void S8() {
+        if((next_char = input[char_pos]) != '"') {
             agregarBuffer(next_char);
+            S8();
+            return;
         }
         agregarBuffer(next_char);
+        S9();
     }
+
+    private void S9() {}
 
     // Extrae un token cada vez que se llama a la función
     public Token next_token() {
@@ -118,41 +118,50 @@ public class Scanner {
             // Tokens y palabras reservadas
             // Estado S1
             if(next_char == '{') {
+                iniciarBuffer(next_char);
                 return S1();
             }
             // Estado S2
             if(next_char == '}') {
+                iniciarBuffer(next_char);
                 return S2();
             }
             // Estado S3
             if(next_char == '(') {
+                iniciarBuffer(next_char);
                 return S3();
             }
             // Estado S4
             if(next_char == ')') {
+                iniciarBuffer(next_char);
                 return S4();
             }
             // Estado S5
             if(next_char == ',') {
+                iniciarBuffer(next_char);
                 return S5();
             }
             // Estado S6: Numeros
             if(Character.isDigit(next_char)) {
+                iniciarBuffer(next_char);
                 return S6();
             }
-            // Estados S7-S15: Reservadas
+            // Estados S7: Reservadas
             if(Character.isLetter(next_char)) {
-                if((token_tmp = S7_S15()) != null) {
+                iniciarBuffer(next_char);
+                if((token_tmp = S7()) != null) {
                     return token_tmp;
                 }
+                continue;
             }
-            // Estado S16: Comentarios (Se ingnoran)
+            // Estado S8: Comentarios (Se ingnoran)
             if(next_char == '"') {
-                S16_S18();
+                iniciarBuffer(next_char);
+                S8();
                 continue;
             }
 
-            // Estado S19: Caracteres que se van a ignorar
+            // Estado S10: Caracteres que se van a ignorar
             if(next_char == ' ') {
                 char_col ++;
             } else if(next_char == '\t') {
