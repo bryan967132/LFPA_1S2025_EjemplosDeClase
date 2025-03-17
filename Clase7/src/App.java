@@ -15,16 +15,14 @@ public class App {
 
         Token tok;
 
-        System.out.println("\nTOKENS");
-        System.out.printf("%-25s%-6s%-8s%-10s\n", "LEXEMA", "LINEA", "COLUMNA", "TIPO");
-
-        // CREAR ARRAY LIST DE TOKEN
         ArrayList<Token> tokens = new ArrayList<>();
         do {
             tok = sc.siguiente_token();
-            // INSERTAR token A ARRAYLIST
             tokens.add(tok);
         } while(tok.tipo != TOK.EOF);
+
+        System.out.println("\nTOKENS");
+        System.out.printf("%-25s%-6s%-8s%-10s\n", "LEXEMA", "LINEA", "COLUMNA", "TIPO");
 
         for(Token token : tokens) {
             System.out.printf("%-25s%-6s%-8s%-10s\n", token.lexema, token.linea, token.columna, token.tipo.getNombre());
