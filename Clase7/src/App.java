@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 import Scanner.*;
 import Utils.Error;
@@ -12,17 +13,22 @@ public class App {
 
         Scanner sc = new Scanner(input);
 
-        Token token;
+        Token tok;
 
         System.out.println("\nTOKENS");
         System.out.printf("%-25s%-6s%-8s%-10s\n", "LEXEMA", "LINEA", "COLUMNA", "TIPO");
 
         // CREAR ARRAY LIST DE TOKEN
+        ArrayList<Token> tokens = new ArrayList<>();
         do {
-            token = sc.siguiente_token();
+            tok = sc.siguiente_token();
             // INSERTAR token A ARRAYLIST
+            tokens.add(tok);
+        } while(tok.tipo != TOK.EOF);
+
+        for(Token token : tokens) {
             System.out.printf("%-25s%-6s%-8s%-10s\n", token.lexema, token.linea, token.columna, token.tipo.getNombre());
-        } while(token.tipo != TOK.EOF);
+        }
 
         System.out.println("\nERRORES LÉXICOS");
         if(sc.errores.size() > 0) {
