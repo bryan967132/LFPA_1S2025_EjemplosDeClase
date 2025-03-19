@@ -1,6 +1,5 @@
 import java.io.BufferedWriter;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,7 +13,7 @@ public class App2 {
 
         String nombre = "AFD1";
 
-        String descripcion = "\"Cadenas numéricas\"".substring(1, "\"Cadenas numéricas\"".length() - 2);
+        String descripcion = "\"Cadenas numéricas\"".substring(1, "\"Cadenas numéricas\"".length() - 1);
 
         ArrayList<String> estados = new ArrayList<>();
         estados.add("S0");

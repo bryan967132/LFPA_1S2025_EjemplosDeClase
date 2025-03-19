@@ -30,19 +30,19 @@ public class AFD {
         dot.append("\n\trankdir = LR;");
         dot.append("\n\tgraph[fontname=\"Arial\" labelloc=t];");
         dot.append("\n\tnode[shape=circle];");
-        dot.append("\n\tlabel=<");
-        dot.append("\n\t\t<font color=\"black\">" + nombre + "</font><br/>");
-        dot.append("\n\t\t<font color=\"#2B90FF\">Descripción: " + descripcion + "</font><br align=\"left\"/>");
-        dot.append("\n\t\t<font color=\"#FF4A4A\">Estados: " + String.join(", ", estados) + "</font><br align=\"left\"/>");
-        dot.append("\n\t\t<font color=\"#FFA142\">Alfabeto: " + String.join(", ", alfabeto) + "</font><br align=\"left\"/>");
-        dot.append("\n\t\t<font color=\"#48C748\">Estado Inicial: " + inicial + "</font><br align=\"left\"/>");
-        dot.append("\n\t\t<font color=\"#B166DA\">Estados de Aceptación:" + String.join(", ", finales) + "</font><br align=\"left\"/>\n\t>;");
+        dot.append("\n\tlabel=<<font>" + nombre + "</font><br/><font>Descripción: " + descripcion + "</font><br align=\"left\"/><font>Estados: " + String.join(", ", estados) + "</font><br align=\"left\"/><font>Alfabeto: " + String.join(", ", alfabeto) + "</font><br align=\"left\"/><font>Estado Inicial: " + inicial + "</font><br align=\"left\"/><font>Estados de Aceptación:" + String.join(", ", finales) + "</font><br align=\"left\"/>>;");
+        dot.append("\n\tinicio [shape=point, width=0];");
         for(String estado : estados) {
             dot.append("\n\t").append(estado).append(" [label=\"").append(estado).append("\"");
             if(finales.contains(estado)) {
                 dot.append(" peripheries=2");
             }
             dot.append("];");
+            if(estado.equals(inicial)) {
+                dot.append("\n\tinicio -> ");
+                dot.append(estado);
+                dot.append(";");
+            }
         }
         transiciones.forEach((estadoOrigen, transiciones) -> {
             transiciones.tabla.forEach((charTransicion, estadoDestino) -> {

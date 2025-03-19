@@ -2,15 +2,10 @@ digraph AFD1 {
 	rankdir = LR;
 	graph[fontname="Arial" labelloc=t];
 	node[shape=circle];
-	label=<
-		<font color="black">AFD1</font><br/>
-		<font color="#2B90FF">Descripción: Cadenas numérica</font><br align="left"/>
-		<font color="#FF4A4A">Estados: S0, S1, S2, S3, S4, S5, S6, S7, S8</font><br align="left"/>
-		<font color="#FFA142">Alfabeto: 1, 2, 3</font><br align="left"/>
-		<font color="#48C748">Estado Inicial: S0</font><br align="left"/>
-		<font color="#B166DA">Estados de Aceptación:S0, S1, S2, S3, S5, S6, S7, S8</font><br align="left"/>
-	>;
+	label=<<font>AFD1</font><br/><font>Descripción: Cadenas numéricas</font><br align="left"/><font>Estados: S0, S1, S2, S3, S4, S5, S6, S7, S8</font><br align="left"/><font>Alfabeto: 1, 2, 3</font><br align="left"/><font>Estado Inicial: S0</font><br align="left"/><font>Estados de Aceptación:S0, S1, S2, S3, S5, S6, S7, S8</font><br align="left"/>>;
+	inicio [shape=point, width=0];
 	S0 [label="S0" peripheries=2];
+	inicio -> S0;
 	S1 [label="S1" peripheries=2];
 	S2 [label="S2" peripheries=2];
 	S3 [label="S3" peripheries=2];
