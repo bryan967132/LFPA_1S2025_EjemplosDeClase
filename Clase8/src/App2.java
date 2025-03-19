@@ -1,5 +1,7 @@
 import java.io.BufferedWriter;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -27,9 +29,9 @@ public class App2 {
 
         ArrayList<String> alfabeto = new ArrayList<>();
         // alfabeto.add(token.lexema.substring(1, token.lexema.length() - 2));
-        alfabeto.add("\"1\"".substring(1, "\"1\"".length() - 2));
-        alfabeto.add("\"2\"".substring(1, "\"2\"".length() - 2));
-        alfabeto.add("\"3\"".substring(1, "\"3\"".length() - 2));
+        alfabeto.add("\"1\"".substring(1, "\"1\"".length() - 1));
+        alfabeto.add("\"2\"".substring(1, "\"2\"".length() - 1));
+        alfabeto.add("\"3\"".substring(1, "\"3\"".length() - 1));
 
         String estadoInicial = "S0";
 
@@ -94,8 +96,16 @@ public class App2 {
 
         String dotAFD = automatas.get(nombreAFD).graficar();
 
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter("./SalidaAFD1.dot"))) {
+        // ESCRITURA DEL ARCHIVO .dot
+        try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("./Salida" + nombreAFD + ".dot"), "UTF-8"))) {
             bw.write(dotAFD);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // CONVERSIÓN DE .dot A .png
+        try {
+            
         } catch (Exception e) {
             e.printStackTrace();
         }

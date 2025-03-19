@@ -26,11 +26,21 @@ public class AFD {
     }
 
     public String graficar() {
-        StringBuilder dot = new StringBuilder("digraph AFD1 {\n\tnode[shape=circle];");
+        StringBuilder dot = new StringBuilder("digraph AFD1 {");
+        dot.append("\n\trankdir = LR;");
+        dot.append("\n\tgraph[fontname=\"Arial\" labelloc=t];");
+        dot.append("\n\tnode[shape=circle];");
+        dot.append("\n\tlabel=<");
+        dot.append("\n\t\t<font color=\"black\">" + nombre + "</font><br/>");
+        dot.append("\n\t\t<font color=\"#2B90FF\">Descripción: " + descripcion + "</font><br align=\"left\"/>");
+        dot.append("\n\t\t<font color=\"#FF4A4A\">Estados: " + String.join(", ", estados) + "</font><br align=\"left\"/>");
+        dot.append("\n\t\t<font color=\"#FFA142\">Alfabeto: " + String.join(", ", alfabeto) + "</font><br align=\"left\"/>");
+        dot.append("\n\t\t<font color=\"#48C748\">Estado Inicial: " + inicial + "</font><br align=\"left\"/>");
+        dot.append("\n\t\t<font color=\"#B166DA\">Estados de Aceptación:" + String.join(", ", finales) + "</font><br align=\"left\"/>\n\t>;");
         for(String estado : estados) {
             dot.append("\n\t").append(estado).append(" [label=\"").append(estado).append("\"");
             if(finales.contains(estado)) {
-                dot.append(" shape=doublecircle");
+                dot.append(" peripheries=2");
             }
             dot.append("];");
         }
@@ -40,7 +50,7 @@ public class AFD {
                 .append(estadoOrigen)
                 .append(" -> ")
                 .append(estadoDestino)
-                .append("[label=\"").append(charTransicion).append("\"];");
+                .append(" [label=\"").append(charTransicion).append("\"];");
             });
         });
         dot.append("\n}");

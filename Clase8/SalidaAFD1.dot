@@ -1,28 +1,38 @@
 digraph AFD1 {
+	rankdir = LR;
+	graph[fontname="Arial" labelloc=t];
 	node[shape=circle];
-	S0 [label="S0" shape=doublecircle];
-	S1 [label="S1" shape=doublecircle];
-	S2 [label="S2" shape=doublecircle];
-	S3 [label="S3" shape=doublecircle];
+	label=<
+		<font color="black">AFD1</font><br/>
+		<font color="#2B90FF">Descripción: Cadenas numérica</font><br align="left"/>
+		<font color="#FF4A4A">Estados: S0, S1, S2, S3, S4, S5, S6, S7, S8</font><br align="left"/>
+		<font color="#FFA142">Alfabeto: 1, 2, 3</font><br align="left"/>
+		<font color="#48C748">Estado Inicial: S0</font><br align="left"/>
+		<font color="#B166DA">Estados de Aceptación:S0, S1, S2, S3, S5, S6, S7, S8</font><br align="left"/>
+	>;
+	S0 [label="S0" peripheries=2];
+	S1 [label="S1" peripheries=2];
+	S2 [label="S2" peripheries=2];
+	S3 [label="S3" peripheries=2];
 	S4 [label="S4"];
-	S5 [label="S5" shape=doublecircle];
-	S6 [label="S6" shape=doublecircle];
-	S7 [label="S7" shape=doublecircle];
-	S8 [label="S8" shape=doublecircle];
-	S3 -> S5[label="1"];
-	S3 -> S6[label="2"];
-	S3 -> S7[label="3"];
-	S4 -> S8[label="1"];
-	S4 -> S4[label="3"];
-	S5 -> S5[label="1"];
-	S6 -> S6[label="2"];
-	S7 -> S8[label="1"];
-	S7 -> S6[label="2"];
-	S7 -> S7[label="3"];
-	S0 -> S1[label="1"];
-	S0 -> S2[label="2"];
-	S0 -> S3[label="3"];
-	S1 -> S1[label="2"];
-	S2 -> S1[label="2"];
-	S2 -> S4[label="3"];
+	S5 [label="S5" peripheries=2];
+	S6 [label="S6" peripheries=2];
+	S7 [label="S7" peripheries=2];
+	S8 [label="S8" peripheries=2];
+	S3 -> S5 [label="1"];
+	S3 -> S6 [label="2"];
+	S3 -> S7 [label="3"];
+	S4 -> S8 [label="1"];
+	S4 -> S4 [label="3"];
+	S5 -> S5 [label="1"];
+	S6 -> S6 [label="2"];
+	S7 -> S8 [label="1"];
+	S7 -> S6 [label="2"];
+	S7 -> S7 [label="3"];
+	S0 -> S1 [label="1"];
+	S0 -> S2 [label="2"];
+	S0 -> S3 [label="3"];
+	S1 -> S1 [label="2"];
+	S2 -> S1 [label="2"];
+	S2 -> S4 [label="3"];
 }
