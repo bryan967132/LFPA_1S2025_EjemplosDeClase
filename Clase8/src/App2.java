@@ -96,15 +96,19 @@ public class App2 {
         String dotAFD = automatas.get(nombreAFD).graficar();
 
         // ESCRITURA DEL ARCHIVO .dot
-        try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("./Salida" + nombreAFD + ".dot"), "UTF-8"))) {
+        String rutaDot = "./Salida" + nombreAFD + ".dot";
+        try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(rutaDot), "UTF-8"))) {
             bw.write(dotAFD);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         // CONVERSIÓN DE .dot A .png
+        String rutaPng = "./Salida" + nombreAFD + ".png";
         try {
-            
+            ProcessBuilder pb = new ProcessBuilder("dot", "-Tpng", "-o", rutaPng, rutaDot);
+            pb.redirectErrorStream(true);
+            pb.start();
         } catch (Exception e) {
             e.printStackTrace();
         }
