@@ -1,9 +1,9 @@
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 
-import Scanner.Scanner;
-import Scanner.Token;
+import Scanner.*;
 import Utils.Error;
 
 public class App {
@@ -15,13 +15,61 @@ public class App {
 
         Scanner sc = new Scanner(input);
 
-        Token token;
+        Token tok;
 
-        System.out.println("TOKEN" + " ".repeat(25 - "TOKEN".length()) + "LINE" + " ".repeat(6 - "LINE".length()) + "COLUMN" + " ".repeat(8 - "COLUMN".length()) + "TYPE");
+        ArrayList<Token> tokens = new ArrayList<>();
         do {
-            token = sc.next_token();
-            System.out.println(token.lexema + " ".repeat(25 - String.valueOf(token.lexema).length()) + token.linea + " ".repeat(6 - String.valueOf(token.linea).length()) + token.columna + " ".repeat(8 - String.valueOf(token.columna).length()) + token.tipo.getNombre());
-        } while(token.lexema != null);
+            tok = sc.next_token();
+            tokens.add(tok);
+        } while(tok.tipo != TOK.EOF);
+
+        // System.out.println("\nTOKENS");
+        // System.out.printf("%-25s%-6s%-8s%-10s\n", "LEXEMA", "LINEA", "COLUMNA", "TIPO");
+        // for(Token token : tokens) {
+        //     System.out.println(token);
+        // }
+
+        // EXTRACCIÓN DE TOKENS PARA DAR FUNCIONALIDAD AL NUEVO LENGUAJE
+        // EXTRAER LLAVE IZQUIERDA
+        tokens.remove(0);
+        ArrayList<String> resultados = new ArrayList<>();
+        while(tokens.get(0).tipo != TOK.TK_llaveDer) {
+            Token token = tokens.remove(0); // EXTRAE PALABRA RESERVADA PARA OPERACIÓN (suma|resta)
+            tokens.remove(0); // EXTRAE PARÉNTESIS IZQUIERDO
+            String operacion = "";
+            int resultado = 0;
+            if(token.tipo == TOK.KW_suma) {
+                while(tokens.get(0).tipo != TOK.TK_parDer) { // BUCLE PARA EXTRAER LISTA DE VALORES (numeros separados por coma)
+                    token = tokens.remove(0); // EXTRACCIÓN DE NÚMERO
+                    resultado += Integer.parseInt(token.lexema);
+                    operacion += token.lexema;
+
+                    if(tokens.get(0).tipo == TOK.TK_coma) { // VALIDACIÓN SI HAY COMA LUEGO DE UN NÚMERO
+                        tokens.remove(0); // EXTRAER COMA QUE SEPARA CADA VALOR
+                        operacion += " + ";
+                    }
+                }
+                resultados.add(operacion + " = " + resultado);
+            } else if(token.tipo == TOK.KW_resta) {
+                while(tokens.get(0).tipo != TOK.TK_parDer) { // BUCLE PARA EXTRAER LISTA DE VALORES (numeros separados por coma)
+                    token = tokens.remove(0); // EXTRACCIÓN DE NÚMERO
+                    resultado -= Integer.parseInt(token.lexema);
+                    operacion += (operacion.equals("") ? "- " : "") + token.lexema;
+
+                    if(tokens.get(0).tipo == TOK.TK_coma) { // VALIDACIÓN SI HAY COMA LUEGO DE UN NÚMERO
+                        operacion += " - ";
+                        tokens.remove(0); // EXTRAER COMA QUE SEPARA CADA VALOR
+                    }
+                }
+                resultados.add(operacion + " = " + resultado);
+            }
+            tokens.remove(0); // EXTRAE PARÉNTESIS DERECHO
+        }
+        // EXTRAER LLAVE DERECHA
+        tokens.remove(0);
+
+        System.out.println("RESULTADOS");
+        System.out.println(String.join("\n", resultados));
 
         System.out.println("\nERRORES LÉXICOS");
         for(Error er : sc.errores) {

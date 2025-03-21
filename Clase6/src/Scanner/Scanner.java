@@ -107,11 +107,6 @@ public class Scanner {
 
     private void S9() {}
 
-    // Extrae un token cada vez que se llama a la función
-    public Token next_token() {
-        return S0();
-    }
-
     private Token S0() {
         Token token_tmp;
         while((next_char = input[char_pos]) != '\0') {
@@ -179,5 +174,10 @@ public class Scanner {
         }
 
         return new Token(TOK.EOF);
+    }
+
+    // Extrae un token cada vez que se llama a la función
+    public Token next_token() {
+        return S0();
     }
 }

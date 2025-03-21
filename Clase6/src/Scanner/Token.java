@@ -19,4 +19,8 @@ public class Token {
         this.linea = linea;
         this.columna = columna;
     }
+
+    public String toString() {
+        return String.format("%-25s%-6s%-8s%-10s", lexema, linea, columna, tipo.getNombre());
+    }
 }
