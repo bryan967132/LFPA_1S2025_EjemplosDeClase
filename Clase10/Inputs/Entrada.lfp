@@ -1,0 +1,5 @@
+entero a = 15 + 12;
+
+imprimir(a);
+imprimir(7);
+imprimir(a + 5);
