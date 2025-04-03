@@ -36,19 +36,19 @@ a                        5     11      TK_id
 
 ## Gramática Libre del Contexto
 ```html
-<inicio> ::= <instrucciones> EOF
+<INICIO> ::= <INSTRUCCIONES> EOF
 
-<instrucciones> ::= <instruccion> <instrucciones> | <instruccion>
+<INSTRUCCIONES> ::= <INSTRUCCION> <INSTRUCCIONES> | <INSTRUCCION>
 
-<instruccion> ::= <declaracion> | <impresion>
+<INSTRUCCION> ::= <DECLARACION> | <IMPRESION>
 
-<declaracion> ::= 'entero' TK_id '=' <expresion> ';'
+<DECLARACION> ::= 'entero' TK_id '=' <EXPRESION> ';'
 
-<impresion> ::= 'imprimir' '(' <expresion> ')' ';'
+<IMPRESION> ::= 'imprimir' '(' <EXPRESION> ')' ';'
 
-<expresion> ::= <operacion> | <valor>
+<EXPRESION> ::= <OPERACION> | <VALOR>
 
-<operacion> ::= <valor> '+' <valor>
+<OPERACION> ::= <VALOR> '+' <VALOR>
 
-<valor> ::= TK_id | TK_entero
+<VALOR> ::= TK_id | TK_entero
 ```
