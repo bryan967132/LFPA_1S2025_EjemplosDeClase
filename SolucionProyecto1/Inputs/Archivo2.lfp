@@ -1,0 +1,35 @@
+{
+    Alfanumericos: {
+        descripcion: "Cadenas alfanuméricas",
+        estados: [S0, S1, S2, S3, S4, S5, S6, S7, S8],
+        alfabeto: ["a", "b", "c", "x", "y", "z", "0", "1"],
+        inicial: S0,
+        finales: [S3, S6, S7],
+        transiciones: {
+            S0 = ("a" -> S1, "x" -> S2, "0" -> S3, "1" -> S3),
+            S1 = ("b" -> S4, "x" -> S2),
+            S2 = ("y" -> S5),
+            S3 = ("0" -> S3, "1" -> S3),
+            S4 = ("c" -> S6),
+            S5 = ("z" -> S7),
+            S6 = ("a" -> S8),
+            S8 = ("b" -> S4)
+        }
+   +},
+    Alfabeticos: {
+        descripcion: "Cadenas alfabeticas",
+        estados: [E0, E1, E2, E3, E4, E5, E6],
+        alfabeto: ["a", "b", "c", "d", "h"],
+        inicial: E0,
+        finales: [E4],
+        transiciones: {/
+            E0 = ("h"@ -> E1, "b" -> E2, "c" -> E3, "a" -> E4),
+            E1 = ("b" -> E2, "c" -> E3, "a" -> E4),
+            E2 = ("c" -> E4),
+            E3 = ("d" -> E4),
+            E4 = ("b" -> E5, "c" -> E6, "a" -> E4),
+            E5 = ("c" -> E4),
+            E6 = ("d" -> E4)
+        }
+    }
+}

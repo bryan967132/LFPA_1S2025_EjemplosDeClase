@@ -1,0 +1,31 @@
+{@
+    Numeros: {
+        descripcion: "Numeros decimales",
+        estados: [S0, S1, S2, S3],
+        alfabeto: ["digit", "."],
+        inicial: S0,
+        finales: [S1, S3],
+        transiciones: {
+            S0 = ("digit" -> S1),
+            S1 = ("digit" -> S1, "." -> S2),
+            S2 = ("digit" -> S3),
+            S3 = ("digit" -> S3)
+        }
+    },#
+    Letras: {+
+        descripcion: "Caracteres alfabeticos",
+        estados: [E0, E1, E2, E3, E4, E5, E6, E7],
+        alfabeto: ["a", "b", "c"],
+        inicial: E0,
+        finales: [E7],
+        transiciones: {
+            E0 = ("a" -> E1, "b" -> E2, "c" -> E3),
+            E1 = ("a" -> E1, "c" -> E4),
+            E2 = ("b" -> E5),
+            E3 = ("b" -> E6, "c" -> E3),
+            E4 = ("b" -> E6),
+            E5 = ("b" -> E5, "c" -> E4),
+            E6 = ("a" -> E7)
+        }
+    }/
+}
