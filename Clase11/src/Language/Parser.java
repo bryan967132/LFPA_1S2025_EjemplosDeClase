@@ -40,7 +40,7 @@ public class Parser {
         /*  
          * Recuperación de errores: MODO PÁNICO
          * Busca tokens en donde estabilizarse
-         * En este caso busca un punto y como que es el que indica final de una instrucción
+         * En este caso busca un punto y coma que es el que indica final de una instrucción
          * O también puede estabilizarse cuando encuentra EOF
          * En esta parte si se toma EOF como error sintáctico: Aún no debía venir EOF
         */
