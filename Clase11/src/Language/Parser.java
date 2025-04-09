@@ -37,7 +37,25 @@ public class Parser {
             return;
         }
 
+        /*  
+         * Recuperación de errores: MODO PÁNICO
+         * Busca tokens en donde estabilizarse
+         * En este caso busca un punto y como que es el que indica final de una instrucción
+         * O también puede estabilizarse cuando encuentra EOF
+         * En esta parte si se toma EOF como error sintáctico: Aún no debía venir EOF
+        */
+        while((lookahead = sc.next_token()).type != TOK.TK_ptComa && lookahead.type != TOK.EOF) {
+            Outs.errors.add(new Error(lookahead.line, lookahead.column, TypeError.SYNTAX, "No se esperaba «" + (lookahead.lexeme != null ? lookahead.lexeme : "EOF") + "»"));
+        }
         Outs.errors.add(new Error(lookahead.line, lookahead.column, TypeError.SYNTAX, "No se esperaba «" + (lookahead.lexeme != null ? lookahead.lexeme : "EOF") + "»"));
+
+        /*
+         * VUELVE A ANALIZAR LA MISMA PRODUCCIÓN PARA VERIFICAR QUE HAYA O NO
+         * MÁS INSTRUCCIONES
+        */
+        if(match(TOK.KW_entero, TOK.KW_imprimir)) {
+            INSTRUCCIONES();
+        }
     }
 
     private void INSTRUCCION() {
