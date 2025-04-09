@@ -1,0 +1,10 @@
+entero a = 15 + 12;
+
+entero mi_numero = 100;
+
+imprimir(a + 3 * 3 + mi_numero);
+
+entero mi_otro_numero = mi_numero * 10;
+
+imprimir(7 + mi_numero);
+imprimir(mi_numero + a + mi_otro_numero);

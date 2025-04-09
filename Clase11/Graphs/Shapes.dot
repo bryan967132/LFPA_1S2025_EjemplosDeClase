@@ -1,0 +1,26 @@
+digraph {
+    node[style=filled];
+    rankdir=LR;
+    // Lugares
+    playa        [shape=ellipse       fillcolor=lightblue           ];
+    cueva        [shape=box           fillcolor=gray                ];
+    templo       [shape=octagon       fillcolor=gold                ];
+    jungla       [shape=parallelogram fillcolor=forestgreen         ];
+    montana      [shape=triangle      fillcolor=sienna              ];
+    pueblo       [shape=house         fillcolor=burlywood           ];
+    isla         [shape=invtriangle   fillcolor=lightgoldenrodyellow];
+    rio          [shape=hexagon       fillcolor=deepskyblue         ];
+    volcan       [shape=doublecircle  fillcolor=orangered           ];
+    pantano      [shape=trapezium     fillcolor=darkseagreen        ];
+    // Objetos Especiales
+    tesoro       [shape=box3d         fillcolor=gold                ];
+    llave        [shape=pentagon      fillcolor=lightsteelblue      ];
+    arma         [shape=diamond       fillcolor=orangered           ];
+    objeto_magico[shape=component     fillcolor=violet              ];
+    pocion       [shape=cylinder      fillcolor=plum                ];
+    trampa       [shape=hexagon       fillcolor=crimson             ];
+    libro        [shape=note          fillcolor=navajowhite         ];
+    herramienta  [shape=folder        fillcolor=darkkhaki           ];
+    bandera      [shape=tab           fillcolor=white               ];
+    gema         [shape=egg           fillcolor=deepskyblue         ];
+}

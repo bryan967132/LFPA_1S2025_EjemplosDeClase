@@ -1,0 +1,22 @@
+digraph {
+    node[style=filled];
+    layout=neato;
+    rankdir=LR;
+    // Lugares
+    playa        [shape=ellipse       fillcolor=lightblue            pos="0,0!"];
+    cueva        [shape=box           fillcolor=gray                 pos="2,1!"];
+    templo       [shape=octagon       fillcolor=gold                 pos="3,3!"];
+    isla         [shape=invtriangle   fillcolor=lightgoldenrodyellow pos="1,2!"];
+    pueblo       [shape=house         fillcolor=burlywood            pos="4,1!"];
+    // Objetos Especiales
+    tesoro       [shape=box3d         fillcolor=gold                ];
+    llave        [shape=pentagon      fillcolor=lightsteelblue      pos="3,2!"];
+    libro        [shape=note          fillcolor=navajowhite         ];
+
+    playa -> cueva[style=dashed color=saddlebrown label="sendero"];
+    pueblo -> templo[style=solid color=darkgray label="carretera"];
+    cueva -> templo[style=dotted color=gray label="puente"];
+    isla -> playa[style=solid color=blue label="lancha"];
+    libro -> pueblo[style=dashed color=black label="en" dir=none]; // Objeto situado en algun lugar
+    tesoro -> cueva[style=dashed color=black label="en" dir=none]; // Objeto situado en algun lugar
+}
