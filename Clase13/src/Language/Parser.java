@@ -108,17 +108,17 @@ public class Parser {
 
     private void PLACE() {
         // <PLACE> ::= 'place' TK_id ':' <PLACETYPE> 'at' '(' TK_int ',' TK_int ')'
-        consume(TOK.KW_place); // place
-        Token t = consume(TOK.TK_id);    // Cueva
+        consume(TOK.KW_place);
+        Token t = consume(TOK.TK_id);
         System.out.println(t.lexeme);
-        consume(TOK.TK_colon); // :
-        PLACETYPE();           // cueva
-        consume(TOK.KW_at);    // (
-        consume(TOK.TK_lpar);  // 2
-        consume(TOK.TK_int);   // ,
-        consume(TOK.TK_comma); // 1
-        consume(TOK.TK_int);   // )
-        consume(TOK.TK_rpar);  // place
+        consume(TOK.TK_colon);
+        PLACETYPE();
+        consume(TOK.KW_at);
+        consume(TOK.TK_lpar);
+        consume(TOK.TK_int);
+        consume(TOK.TK_comma);
+        consume(TOK.TK_int);
+        consume(TOK.TK_rpar);
     }
 
     private void PLACETYPE() {
