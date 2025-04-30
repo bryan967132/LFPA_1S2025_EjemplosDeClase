@@ -1,0 +1,18 @@
+digraph "Isla del Místico" {
+	node[style=filled];
+	layout=neato;
+	Playa [shape=ellipse fillcolor=lightblue pos="0, 0!"];
+	Cueva [shape=box fillcolor=gray pos="2, 1!"];
+	Templo [shape=octagon fillcolor=gold pos="3, 3!"];
+	Isla [shape=invtriangle fillcolor=lightgoldenrodyellow pos="1, 2!"];
+	Pueblo [shape=house fillcolor=burlywood pos="4, 1!"];
+	Playa -> Cueva [style=dashed color=saddlebrown fontcolor=saddlebrown label="sendero"];
+	Cueva -> Templo [style=dotted color=gray fontcolor=gray label="puente"];
+	Isla -> Playa [style=solid color=blue fontcolor=blue label="lancha"];
+	Pueblo -> Templo [style=solid color=darkgray fontcolor=darkgray label="carretera"];
+	Tesoro [shape=box3d fillcolor=gold label="🎁 Tesoro"];
+	Tesoro -> Cueva [style=dashed color=black label="en" dir=none];
+	Llave [shape=pentagon fillcolor=lightsteelblue label="🔑 Llave" pos="3, 2!"];
+	Libro [shape=note fillcolor=navajowhite label="📕 Libro"];
+	Libro -> Pueblo [style=dashed color=black label="en" dir=none];
+}
