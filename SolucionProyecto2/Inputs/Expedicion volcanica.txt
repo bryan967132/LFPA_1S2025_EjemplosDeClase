@@ -1,0 +1,22 @@
+world "Expedicion Volcanica" {
+
+  place Base:volcan at (0,0)
+  place Pantano:pantano at (1,2)
+  place Jungla:jungla at (2,4)
+  place TemploAntiguo:templo at (4,3)
+  place RioProfundo:rio at (3,1)
+  place CuevaOculta:cueva at (5,0)
+
+  connect Base to Pantano with "nado"
+  connect Pantano to Jungla with "sendero"
+  connect Jungla to TemploAntiguo with "puente"
+  connect TemploAntiguo to CuevaOculta with "camino"
+  connect RioProfundo to Base with "carretera"
+  connect CuevaOculta to RioProfundo with "teleferico"
+
+  object "Gema azul":gema at (4,2)
+  object "Arma legendaria":arma at Jungla
+  object "Bandera de conquista":bandera at TemploAntiguo
+  object "Objeto magico":objeto-magico at Pantano
+  object "Herramienta rota":herramienta at CuevaOculta
+}

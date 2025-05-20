@@ -1,0 +1,33 @@
+digraph "Valle de las Brujas" {
+	node[style=filled];
+	layout=neato;
+	rankdir=LR;
+	PantanoOculto [shape=trapezium fillcolor=darkseagreen pos="9, 6!"];
+	JunglaMagica [shape=parallelogram fillcolor=forestgreen pos="3, 6!"];
+	VolcanPoderoso [shape=doublecircle fillcolor=orangered pos="6, 9!"];
+	Instrucciones [shape=note fillcolor=navajowhite label="📕 Instrucciones" pos="5, 10!"];
+	Herramientas [shape=folder fillcolor=darkkhaki label="🛠️ Herramientas" pos="7, 10!"];
+	JunglaMagica -> VolcanPoderoso [style=dotted color=gray fontcolor=gray label="puente"];
+	VolcanPoderoso -> PantanoOculto [style=dotted color=purple fontcolor=purple label="teleferico"];
+	RioEmbrujado [shape=hexagon fillcolor=deepskyblue pos="12, 0!"];
+	Bandera [shape=tab fillcolor=white label="🚩 Bandera" pos="13, 1!"];
+	IslaDelTesoro [shape=invtriangle fillcolor=lightgoldenrodyellow pos="6, 6!"];
+	Cofre_del_Tesoro [shape=box3d fillcolor=gold label="🎁 Cofre del Tesoro"];
+	Cofre_del_Tesoro -> IslaDelTesoro [style=dashed color=black label="en" dir=none];
+	Objeto_Magico [shape=component fillcolor=violet label="✨ Objeto Magico" pos="2, 7!"];
+	Ciudad [shape=house fillcolor=burlywood pos="12, 12!"];
+	Ciudad -> PantanoOculto [style=dotted color=gray fontcolor=gray label="puente"];
+	Ciudad -> RioEmbrujado [style=solid color=black fontcolor=black label="camino"];
+	Cueva [shape=box fillcolor=gray pos="0, 12!"];
+	VolcanPoderoso -> Cueva [style=dashed color=saddlebrown fontcolor=saddlebrown label="sendero"];
+	Cueva -> Ciudad [style=solid color=darkgray fontcolor=darkgray label="carretera"];
+	Montaña [shape=triangle fillcolor=sienna pos="0, 0!"];
+	Montaña -> JunglaMagica [style=dotted color=purple fontcolor=purple label="teleferico"];
+	RioEmbrujado -> Montaña [style=dashed color=saddlebrown fontcolor=saddlebrown label="sendero"];
+	Montaña -> Cueva [style=dotted color=gray fontcolor=gray label="puente"];
+	Playa [shape=ellipse fillcolor=lightblue pos="6, 3!"];
+	Playa -> IslaDelTesoro [style=solid color=blue fontcolor=blue label="lancha"];
+	RioEmbrujado -> Playa [style=dashed color=deepskyblue fontcolor=deepskyblue label="nado"];
+	Gemas [shape=egg fillcolor=deepskyblue label="💎 Gemas"];
+	Gemas -> Playa [style=dashed color=black label="en" dir=none];
+}

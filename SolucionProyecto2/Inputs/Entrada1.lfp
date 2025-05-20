@@ -1,0 +1,58 @@
+world "Isla del Místico" {
+    place Playa:playa at (0,0)
+    place Cueva:cueva at (2,1)
+    place Templo:templo at (3,3)
+    place Isla:isla at (1,2)
+    place Pueblo:pueblo at (4,1)
+
+    connect Playa to Cueva with "sendero"
+    connect Cueva to Templo with "puente"
+    connect Isla to Playa with "lancha"
+    connect Pueblo to Templo with "carretera"
+
+    object "Tesoro":tesoro at Cueva
+    object "Llave":llave at (3,2)
+    object "Libro":libro at Pueblo
+},
+world "Valle de las Brujas" {
+    place PantanoOculto : pantano at (9, 6)
+    place JunglaMagica : jungla at (3, 6)
+    place VolcanPoderoso : volcan at (6, 9)
+
+    object "Instrucciones" : libro at (5, 10)
+    object "Herramientas" : herramienta at (7, 10)
+
+    connect JunglaMagica to VolcanPoderoso with "puente"
+    connect VolcanPoderoso to PantanoOculto with "teleferico"
+
+    place RioEmbrujado : rio at (12, 0)
+
+    object "Bandera" : bandera at (13, 1)
+
+    place IslaDelTesoro : isla at (6, 6)
+
+    object "Cofre del Tesoro" : tesoro at IslaDelTesoro
+    object "Objeto Magico" : objeto-magico at (2, 7)
+
+    place Ciudad : pueblo at (12, 12)
+
+    connect Ciudad to PantanoOculto with "puente"
+    connect Ciudad to RioEmbrujado with "camino"
+
+    place Cueva : cueva at (0, 12)
+    connect VolcanPoderoso to Cueva with "sendero"
+    connect Cueva to Ciudad with "carretera"
+
+    place Montaña : montana at (0, 0)
+
+
+    connect Montaña to JunglaMagica with "teleferico"
+    connect RioEmbrujado to Montaña with "sendero"
+    connect Montaña to Cueva with "puente"
+
+    place Playa : playa at (6, 3)
+
+    connect Playa to IslaDelTesoro with "lancha"
+    connect RioEmbrujado to Playa with "nado"
+    object "Gemas" : gema at Playa
+}

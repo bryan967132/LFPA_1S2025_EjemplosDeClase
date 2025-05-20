@@ -1,0 +1,35 @@
+digraph "Expedicion Volcanica" {
+    graph [layout=neato, splines=true, overlap=false];
+    node [style=filled fontname="Noto Color Emoji"];
+
+    
+    Base [label="Base", shape=doublecircle, fillcolor=orangered, pos="0,0!"];
+    Pantano [label="Pantano", shape=trapezium, fillcolor=darkseagreen, pos="1,2!"];
+    Jungla [label="Jungla", shape=parallelogram, fillcolor=forestgreen, pos="2,4!"];
+    TemploAntiguo [label="TemploAntiguo", shape=octagon, fillcolor=gold, pos="4,3!"];
+    RioProfundo [label="RioProfundo", shape=hexagon, fillcolor=deepskyblue, pos="3,1!"];
+    CuevaOculta [label="CuevaOculta", shape=box, fillcolor=gray, pos="5,0!"];
+
+
+    Base -> Pantano [label="nado", style=dashed, color=deepskyblue];
+    Pantano -> Jungla [label="sendero", style=dashed, color=saddlebrown];
+    Jungla -> TemploAntiguo [label="puente", style=dotted, color=gray];
+    TemploAntiguo -> CuevaOculta [label="camino", style=solid, color=black];
+    RioProfundo -> Base [label="carretera", style=solid, color=darkgray];
+    CuevaOculta -> RioProfundo [label="teleferico", style=dotted, color=purple];
+
+    
+    GemaAzul [label="💎 Gema azul", shape=egg, fillcolor=deepskyblue, pos="4,2!"];
+
+    ArmaLegendaria [label="🗡️ Arma legendaria", shape=diamond, fillcolor=orangered];
+    ArmaLegendaria -> Jungla [style=dotted, label="en"];
+
+    BanderaConquista [label="🚩 Bandera de conquista", shape=tab, fillcolor=white];
+    BanderaConquista -> TemploAntiguo [style=dotted, label="en"];
+
+    ObjetoMagico [label="✨ Objeto magico", shape=component, fillcolor=violet];
+    ObjetoMagico -> Pantano [style=dotted, label="en"];
+
+    HerramientaRota [label="🛠️ Herramienta rota", shape=folder, fillcolor=darkkhaki];
+    HerramientaRota -> CuevaOculta [style=dotted, label="en"];
+}

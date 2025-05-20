@@ -1,0 +1,36 @@
+digraph "Aventura en la Jungla" {
+    node [style=filled fontname="Noto Color Emoji"];
+    graph [layout=neato, splines=true, overlap=false];
+
+    Entrada [label="Entrada\n", shape=parallelogram, fillcolor=forestgreen, pos="0,0!"];
+    Rio [label="Rio\n", shape=hexagon, fillcolor=deepskyblue, pos="1,2!"];
+    Montana [label="Montana\n", shape=triangle, fillcolor=sienna, pos="3,1!"];
+    Volcan [label="Volcan\n", shape=doublecircle, fillcolor=orangered, pos="5,2!"];
+    Aldea [label="Aldea\n", shape=house, fillcolor=burlywood, pos="2,3!"];
+    IslaMisteriosa [label="IslaMisteriosa\n", shape=invtriangle, fillcolor=lightgoldenrod, pos="4,0!"];
+
+
+    Entrada -> Rio [label="sendero", style=dashed, color=saddlebrown];
+    Rio -> Montana [label="camino", style=solid, color=black];
+    Montana -> Volcan [label="puente", style=dotted, color=gray];
+    Aldea -> Montana [label="carretera", style=solid, color=darkgray];
+    Aldea -> IslaMisteriosa [label="lancha", style=solid, color=blue];
+    IslaMisteriosa -> Volcan [label="teleferico", style=dotted, color=purple];
+
+   
+    TesoroAntiguo [label="🎁 Tesoro antiguo", shape=box3d, fillcolor=gold];
+    TesoroAntiguo -> Montana [style=dotted, label="en"];
+
+    LlaveMagica [label="🔑 Llave magica", shape=pentagon, fillcolor=lightsteelblue, pos="3,2!"];
+
+    LibroSagrado [label="📕 Libro sagrado", shape=note, fillcolor=navajowhite];
+    LibroSagrado -> Aldea [style=dotted, label="en"];
+
+    TrampaMortal [label="💣 Trampa mortal", shape=hexagon, fillcolor=crimson];
+    TrampaMortal -> Rio [style=dotted, label="en"];
+
+    PocionCurativa [label="⚗️ Pocion curativa", shape=cylinder, fillcolor=plum, pos="1,1!"];
+
+    GemaRoja [label="💎 Gema roja", shape=egg, fillcolor=deepskyblue];
+    GemaRoja -> IslaMisteriosa [style=dotted, label="en"];
+}

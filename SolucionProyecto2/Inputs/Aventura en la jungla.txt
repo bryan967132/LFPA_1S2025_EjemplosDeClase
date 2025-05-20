@@ -1,0 +1,23 @@
+world "Aventura en la Jungla" {
+
+  place Entrada:jungla at (0,0)
+  place Rio:rio at (1,2)
+  place Montana:montana at (3,1)
+  place Volcan:volcan at (5,2)
+  place Aldea:pueblo at (2,3)
+  place IslaMisteriosa:isla at (4,0)
+
+  connect Entrada to Rio with "sendero"
+  connect Rio to Montana with "camino"
+  connect Montana to Volcan with "puente"
+  connect Aldea to Montana with "carretera"
+  connect Aldea to IslaMisteriosa with "lancha"
+  connect IslaMisteriosa to Volcan with "teleferico"
+
+  object "Tesoro antiguo":tesoro at Montana
+  object "Llave magica":llave at (3,2)
+  object "Libro sagrado":libro at Aldea
+  object "Trampa mortal":trampa at Rio
+  object "Pocion curativa":pocion at (1,1)
+  object "Gema roja":gema at IslaMisteriosa
+}

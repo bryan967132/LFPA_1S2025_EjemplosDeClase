@@ -1,0 +1,74 @@
+world "Aventura en la Jungla" {
+
+  place Entrada:jungla at (0,0)
+  place Rio:rio at (1,2)
+  place Montana:montana at (3,1)
+  place Volcan:volcan at (5,2)
+  place Aldea:pueblo at (2,3)
+  place IslaMisteriosa:isla at (4,0)
+
+  connect Entrada to Rio with "sendero"
+  connect Rio to Montana with "camino"
+  connect Montana to Volcan with "puente"
+  connect Aldea to Montana with "carretera"
+  connect Aldea to IslaMisteriosa with "lancha"
+  connect IslaMisteriosa to Volcan with "teleferico"
+
+  object "Tesoro antiguo":tesoro at Montana
+  object "Llave magica":llave at (3,2)
+  object "Libro sagrado":libro at Aldea
+  object "Trampa mortal":trampa at Rio
+  object "Pocion curativa":pocion at (1,1)
+  object "Gema roja":gema at IslaMisteriosa
+},
+world "Expedicion Volcanica" {
+
+  place Base:volcan at (0,0)
+  place Pantano:pantano at (1,2)
+  place Jungla:jungla at (2,4)
+  place TemploAntiguo:templo at (4,3)
+  place RioProfundo:rio at (3,1)
+  place CuevaOculta:cueva at (5,0)
+
+  connect Base to Pantano with "nado"
+  connect Pantano to Jungla with "sendero"
+  connect Jungla to TemploAntiguo with "puente"
+  connect TemploAntiguo to CuevaOculta with "camino"
+  connect RioProfundo to Base with "carretera"
+  connect CuevaOculta to RioProfundo with "teleferico"
+
+  object "Gema azul":gema at (4,2)
+  object "Arma legendaria":arma at Jungla
+  object "Bandera de conquista":bandera at TemploAntiguo
+  object "Objeto magico":objeto-magico at Pantano
+  object "Herramienta rota":herramienta at CuevaOculta
+},
+world "Volcan Sombrio" {
+  place Jungla:jungla at (0,1)
+  place Montana:montana at (2,3)
+  place Rio:rio at (1,0)
+  place Volcan:volcan at (3,2)
+  place Pantano:pantano at (4,0)
+  place Isla:isla at (2,-1)
+  place Pueblo:pueblo at (0,3)
+  place Cueva:cueva at (5,2)
+
+  connect Jungla to Montana with "sendero"
+  connect Montana to Volcan with "puente"
+  connect Rio to Jungla with "nado"
+  connect Pantano to Rio with "camino"
+  connect Pantano to Volcan with "teleferico"
+  connect Isla to Rio with "lancha"
+  connect Pueblo to Jungla with "carretera"
+  connect Volcan to Cueva with "camino"
+
+  object "Espada Antigua":arma at Montana
+  object "Gema Azul":gema at (2,1)
+  object "Bandera Roja":bandera at Volcan
+  object "Pocion Curativa":pocion at Isla
+  object "Libro Perdido":libro at Cueva
+  object "Llave Dorada":llave at (4,3)
+  object "Trampa Mortal":trampa at Jungla
+  object "Reloj Magico":objeto-magico at Pueblo
+  object "Martillo de Hierro":herramienta at Pantano
+}
